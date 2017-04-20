@@ -30,6 +30,7 @@ do
 			;;
 		-d|--dry-run*)
             BREW_COMMAND=echo
+            ;;
 		*)
 			# Pass thru anything that may be meant for fetch.
 			[ -n "$1" ] && FILE=$1
