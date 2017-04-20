@@ -1,53 +1,6 @@
 #!/bin/sh
 
-set -xe
-
-BREW_COMMAND=brew
-
-
-usage_long() {
-	cat << EOF
-NAME
-	macsetup
-
-SYNOPSYS
-	bash <(curl -s https://raw.githubusercontent.com/<username>/macsetup/master/setup.sh)
-
-DESCRIPTION
-	Installs good stuff in your shiny new mac.
-
-OPTIONS
-	-d/--dry-run	Echoes commands rather than running them
-EOF
-exit 0
-}
-
-while test $# != 0
-do
-	case "$1" in
-		-h|--h|--he|--hel|--help|help)
-			usage_long
-			;;
-		-d|--dry-run*)
-            BREW_COMMAND=echo
-            ;;
-		*)
-			# Pass thru anything that may be meant for fetch.
-			[ -n "$1" ] && FILE=$1
-			;;
-	esac
-	shift
-done
-main
-
-echo ------------- Install Homebrew -------------
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-echo ------------- Update Brew -------------
-$BREW_COMMAND update
-
-echo ------------- Installing Cask -------------
-$BREW_COMMAND tap caskroom/cask
+set -e
 
 brew_packages="\
     ansible \
@@ -97,6 +50,7 @@ brew_packages="\
     watch \
     yarn \
 "
+
 brew_langs="\
     go \
     erlang \
@@ -115,74 +69,147 @@ brew_dbs="\
     redis \
     sqlite \
 "
-echo ------------- Install Tooling and Packages -------------
-$BREW_COMMAND install $brew_packages
 
-echo ------------- Install Languages -------------
-$BREW_COMMAND install $brew_langs
+cask_apps="\
+    alfred \
+    anki \
+    appcleaner \
+    atom \
+    bartender \
+    calibre \
+    cloudup \
+    diffmerge \
+    docker \
+    dropbox \
+    evernote \
+    firefox \
+    flycut \
+    gfxcardstatus \
+    gitkraken \
+    google-chrome \
+    iterm2 \
+    medis \
+    postman \
+    robomongo \
+    sdformatter \
+    sequel-pro \
+    skype \
+    slack \
+    smartgit \
+    spotify \
+    spotify-notifications \
+    sublime-text \
+    vagrant \
+    virtualbox \
+"
+mas_apps="\
+    441258766 \
+    969418666 \
+    443987910 \
+    880001334 \
+    409201541 \
+    1176895641 \
+    425424353 \
+    975937182 \
+    557168941 \
+"
 
-echo ------------- Install Databases -------------
-$BREW_COMMAND install $brew_dbs
+BREW_COMMAND="brew"
+CASK_COMMAND="brew cask"
+MAS_COMMAND="mas"
 
 
-echo ------------- Install Cask Apps -------------
-# brew cask install alfred
-# brew cask install anki
-# brew cask install appcleaner
-# brew cask install atom
-# brew cask install bartender
-# brew cask install calibre
-# brew cask install cloudup
-# brew cask install diffmerge
-# brew cask install docker
-# brew cask install dropbox
-# brew cask install evernote
-# brew cask install firefox
-# brew cask install flycut
-# brew cask install gfxcardstatus
-# brew cask install gitkraken
-# brew cask install google-chrome
-# brew cask install iterm2
-# brew cask install medis
-# brew cask install postman
-# brew cask install robomongo
-# brew cask install sdformatter
-# brew cask install sequel-pro
-# brew cask install skype
-# brew cask install slack
-# brew cask install smartgit
-# brew cask install spotify
-# brew cask install spotify-notifications
-# brew cask install sublime-text
-# brew cask install vagrant
-# brew cask install virtualbox
+usage_long() {
+	cat << EOF
+NAME
+	macsetup
 
+SYNOPSYS
+	bash <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/setup.sh)
 
-echo  ------------- Install Apps from Appstore -------------
-# #Magnet
-# mas install 441258766
-# #ColorSnapper2
-# mas install 969418666
-# #1password
-# mas install 443987910
-# #Reeder
-# mas install 880001334
-# #Pages
-# mas install 409201541
-# #Spark
-# mas install 1176895641
-# #The Unarchiver
-# mas install 425424353
-# #Fantastical 2
-# mas install 975937182
-# #Tweetbot
-# mas install 557168941
+DESCRIPTION
+	Installs good stuff in your shiny new mac.
 
-echo ------------- Cleanup Brew -------------
-$BREW_COMMAND cleanup
+OPTIONS
+	-d/--dry-run	Echoes commands rather than running them
+EOF
+exit 0
+}
 
-echo ------------- Cleanup Cask Installs -------------
-$BREW_COMMAND cask cleanup
+while test $# != 0
+do
+	case "$1" in
+        -h|--h|--he|--hel|--help|help)
+            usage_long
+            ;;
+        -d|--dry-run*)
+            BREW_COMMAND=_brew_dryrun
+            CASK_COMMAND=_cask_dryrun
+            MAS_COMMAND=_mas_dryrun
+            ;;
+	esac
+	shift
+done
 
-echo ------------- Installing Oh My Zsh
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+message() {
+    tput setaf 12
+    printf "~> "
+    tput setaf 14
+    echo "$@"
+    tput sgr0
+}
+
+_brew_dryrun() {
+    tput setaf 6
+    echo "brew $@"
+    tput sgr0
+}
+
+_cask_dryrun() {
+    tput setaf 6
+    echo "brew cask $@"
+    tput sgr0
+}
+
+_mas_dryrun() {
+    tput setaf 6
+    echo "mas $@"
+    tput sgr0
+}
+
+main() {
+    message Install Homebrew
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+    message Update Brew
+    $BREW_COMMAND update
+
+    message Installing Cask
+    $BREW_COMMAND tap caskroom/cask
+
+    message Install Tooling and Packages
+    $BREW_COMMAND install $brew_packages
+
+    message Install Languages
+    $BREW_COMMAND install $brew_langs
+
+    message nstall Databases
+    $BREW_COMMAND install $brew_dbs
+
+    message Install Cask Apps
+    $CASK_COMMAND install $cask_apps
+
+    message Install Apps from Appstore
+    $MAS_COMMAND install $mas_apps
+
+    message Cleanup Brew
+    $BREW_COMMAND cleanup
+
+    message Cleanup Cask Installs
+    $BREW_COMMAND cask cleanup
+
+    message Installing Oh My Zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+main
