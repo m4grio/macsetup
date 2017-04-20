@@ -14,7 +14,7 @@ brew_packages="\
     automake \
     awscli \
     cmake \
-    composer \
+    homebrew/php/composer \
     coreutils \
     delve \
     diff-so-fancy \
