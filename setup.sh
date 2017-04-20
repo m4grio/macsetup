@@ -16,7 +16,6 @@ brew_packages="\
     cmake \
     homebrew/php/composer \
     coreutils \
-    delve \
     diff-so-fancy \
     dos2unix \
     gettext \
