@@ -25,7 +25,6 @@ brew_packages="\
     git-standup \
     gnupg\
     htop \
-    docker \
     jmeter \
     linode-cli \
     logstalgia \
@@ -101,6 +100,38 @@ cask_apps="\
     sublime-text \
     vagrant \
     virtualbox \
+    black-screen \
+    cathode \
+    charles \
+    cyberduck \
+    google-chrome \
+    gpgtools \
+    hyper \
+    insomnia \
+    intellij-idea \
+    izip \
+    keybase \
+    kindle \
+    kitematic \
+    messenger \
+    mongohub \
+    mysqlworkbench \
+    phpstorm \
+    pomotodo \
+    rescuetime \
+    rubymine \
+    skitch \
+    sqlpro-for-sqlite \
+    textwrangler \
+    things \
+    tubbler \
+    unrarx \
+    vagrant \
+    viscosity \
+    visual-studio-code \
+    vlc \
+    xmind \
+    jumpcut \
 "
 mas_apps="\
     441258766 \
@@ -199,8 +230,8 @@ main() {
     message Install Cask Apps
     $CASK_COMMAND install $cask_apps
 
-    message Install Apps from Appstore
-    $MAS_COMMAND install $mas_apps
+    # message Install Apps from Appstore
+    # $MAS_COMMAND install $mas_apps
 
     message Cleanup Brew
     $BREW_COMMAND cleanup
