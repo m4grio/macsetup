@@ -29,7 +29,6 @@ brew_packages="\
     logstalgia \
     maven \
     nettle \
-    nmap \
     openssl openssl@1.1 \
     parallel \
     pcre \
@@ -46,7 +45,6 @@ brew_packages="\
     speedtest_cli \
     tree \
     watch \
-    yarn \
 "
 
 brew_langs="\
