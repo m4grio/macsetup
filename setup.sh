@@ -20,7 +20,7 @@ brew_packages="\
     dos2unix \
     gettext \
     git \
-    git-radar \
+    michaeldfallen/formula/git-radar \
     git-standup \
     gnupg\
     htop \
