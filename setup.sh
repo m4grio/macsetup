@@ -24,6 +24,7 @@ brew_packages="\
     git-standup \
     gnupg\
     htop \
+    httpie \
     jmeter \
     linode-cli \
     logstalgia \
