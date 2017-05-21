@@ -14,7 +14,6 @@ brew_packages="\
     automake \
     awscli \
     cmake \
-    homebrew/php/composer \
     coreutils \
     diff-so-fancy \
     dos2unix \
