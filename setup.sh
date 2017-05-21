@@ -75,6 +75,7 @@ cask_apps="\
     appcleaner \
     atom \
     bartender \
+    boom \
     calibre \
     cloudup \
     diffmerge \
