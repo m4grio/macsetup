@@ -41,7 +41,7 @@ brew_packages="\
     rancher-cli \
     rbenv rbenv-bundler \
     readline \
-    recime-cli \
+    recime/tools/recime-cli \
     siege \
     sl \
     speedtest_cli \
