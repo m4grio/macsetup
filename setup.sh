@@ -27,7 +27,6 @@ brew_packages="\
     jmeter \
     linode/cli/linode-cli \
     logstalgia \
-    maven \
     nettle \
     openssl openssl@1.1 \
     parallel \
