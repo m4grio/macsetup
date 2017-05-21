@@ -26,7 +26,7 @@ brew_packages="\
     htop \
     httpie \
     jmeter \
-    linode-cli \
+    linode/cli/linode-cli \
     logstalgia \
     maven \
     nettle \
