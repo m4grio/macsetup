@@ -66,6 +66,7 @@ brew_dbs="\
 "
 
 cask_apps="\
+    adobe-photoshop-cc \
     alfred \
     anki \
     appcleaner \
@@ -130,17 +131,17 @@ cask_apps="\
     xmind \
     jumpcut \
 "
-mas_apps="\
-    441258766 \
-    969418666 \
-    443987910 \
-    880001334 \
-    409201541 \
-    1176895641 \
-    425424353 \
-    975937182 \
-    557168941 \
-"
+
+declare -a mas_apps
+declare -A mas_apps=(
+    [amphetamine]=937984704
+    [magnet]=441258766
+    [onepassword]=443987910
+    [spark]=1176895641
+    [unarchiver]=425424353
+    # [tweetbot]=557168941
+    # [fantastical2]=975937182
+)
 
 BREW_COMMAND="brew"
 CASK_COMMAND="brew cask"
@@ -227,8 +228,8 @@ main() {
     message Install Cask Apps
     $CASK_COMMAND install $cask_apps
 
-    # message Install Apps from Appstore
-    # $MAS_COMMAND install $mas_apps
+    message Install Apps from Appstore
+    $MAS_COMMAND install ${mas_apps[@]}
 
     message Cleanup Brew
     $BREW_COMMAND cleanup
