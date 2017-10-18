@@ -44,6 +44,7 @@ brew_packages="\
     speedtest_cli \
     tree \
     watch \
+    tig\
 "
 
 brew_langs="\
