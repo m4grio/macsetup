@@ -208,8 +208,10 @@ _mas_dryrun() {
 }
 
 main() {
-    # message Install Homebrew
-    # /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if hash brew 2>/dev/null; then
+        message Install Homebrew
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
 
     message Update Brew
     $BREW_COMMAND update
