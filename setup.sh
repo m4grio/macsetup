@@ -45,6 +45,7 @@ brew_packages="\
     tree \
     watch \
     tig\
+    tldr \
 "
 
 brew_langs="\
