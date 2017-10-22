@@ -46,6 +46,7 @@ brew_packages="\
     watch \
     tig\
     tldr \
+    dep \
 "
 
 brew_langs="\
