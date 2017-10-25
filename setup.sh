@@ -115,6 +115,7 @@ cask_apps="\
     kindle \
     kitematic \
     messenger \
+    goofy \
     mongohub \
     mysqlworkbench \
     phpstorm \
