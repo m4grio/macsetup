@@ -134,6 +134,7 @@ cask_apps="\
     vlc \
     xmind \
     jumpcut \
+    dep \
 "
 
 declare -a mas_apps
