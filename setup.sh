@@ -135,6 +135,7 @@ cask_apps="\
     xmind \
     jumpcut \
     dep \
+    vanilla \
 "
 
 declare -a mas_apps
