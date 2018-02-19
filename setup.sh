@@ -76,6 +76,7 @@ cask_apps="\
     atom \
     bartender \
     boom \
+    brave \
     calibre \
     cloudup \
     diffmerge \
