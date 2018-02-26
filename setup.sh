@@ -132,6 +132,7 @@ cask_apps="\
     vagrant \
     viscosity \
     visual-studio-code \
+    caskroom/versions/visual-studio-code-insiders \
     vlc \
     xmind \
     jumpcut \
