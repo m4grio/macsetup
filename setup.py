@@ -231,7 +231,7 @@ NAME
 	macsetup.py
 
 SYNOPSYS
-	python <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/macsetup.py)
+	python <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/setup.py)
 
 DESCRIPTION
 	Installs good stuff in your shiny new Mac.
