@@ -7,5 +7,5 @@ Initial setup for my Mac.
 ## Usage
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/setup.sh)
+python <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/setup.py)
 ```
