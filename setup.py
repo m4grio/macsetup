@@ -8,7 +8,7 @@ taps = [
     'caskroom/versions',
     'linode/cli',
     'michaeldfallen/formula',
-    'recime/tools',
+    # 'recime/tools',
 ]
 
 brew_packages = [
@@ -46,7 +46,7 @@ brew_packages = [
     'rancher-cli',
     'rbenv rbenv-bundler',
     'readline',
-    'recime-cli',
+    # 'recime-cli',
     'siege',
     'sl',
     'speedtest_cli',
