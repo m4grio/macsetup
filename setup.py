@@ -228,18 +228,18 @@ def set_flags(argv=[]):
 def print_help_and_exit():
     print("""
 NAME
-	macsetup.py
+	setup.py
 
 SYNOPSYS
 	python <(curl -s https://raw.githubusercontent.com/m4grio/macsetup/master/setup.py)
 
 DESCRIPTION
-	Installs good stuff in your shiny new Mac.
+	Install good stuff in your shiny new Mac.
 
 OPTIONS
 	-d/--dry-run     Echo commands rather than running them
 	--no-packages    Do not install any package from Homebrew
-	--no-langs   Do not install any programming language
+	--no-langs       Do not install any programming language
 	--no-dbs         Do not install any databases
 	--no-apps        Do not install any application from Caskroom
 	--no-mas         Do not install any application from App Store
