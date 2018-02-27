@@ -117,7 +117,7 @@ cask_apps = [
     'charles',
     'cyberduck',
     'google-chrome',
-    'gpgtools',
+    'gpg-suite',
     'hyper',
     'insomnia',
     'intellij-idea',
