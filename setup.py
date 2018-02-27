@@ -31,7 +31,7 @@ brew_packages = [
     'git',
     'git-radar',
     'git-standup',
-    'gnup',
+    'gnupg',
     'htop',
     'httpie',
     'jmeter',
@@ -54,7 +54,7 @@ brew_packages = [
     'speedtest_cli',
     'tree',
     'watch',
-    'ti',
+    'tig',
     'tldr',
     'dep',
 ]
