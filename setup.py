@@ -122,6 +122,7 @@ cask_apps = [
     'kindle',
     'kitematic',
     'messenger',
+    'minishift',
     'goofy',
     'mongohub',
     'mysqlworkbench',
