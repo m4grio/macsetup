@@ -132,7 +132,7 @@ cask_apps = [
     'skitch',
     'sqlpro-for-sqlite',
     # 'textwrangler',
-    'things',
+    # 'things',
     'tubbler',
     'unrarx',
     'vagrant',
