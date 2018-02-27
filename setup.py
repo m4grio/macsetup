@@ -63,9 +63,6 @@ brew_langs = [
     'go',
     'erlang',
     'elixir',
-    'php',
-    'php70',
-    'php70-xdebug',
     'node',
 ]
 
