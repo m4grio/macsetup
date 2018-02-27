@@ -6,7 +6,6 @@ import subprocess
 taps = [
     'caskroom/cask',
     'caskroom/versions',
-    'homebrew/completions',
     'linode/cli',
     'michaeldfallen/formula',
     'recime/tools',
@@ -15,7 +14,6 @@ taps = [
 brew_packages = [
     'ansible',
     'cask',
-    'brew-cask-completion',
     'dnsmasq',
     'mas',
     'wget',
