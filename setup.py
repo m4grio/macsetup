@@ -55,6 +55,7 @@ brew_packages = [
     'tig',
     'tldr',
     'dep',
+    'xhyve',
 ]
 
 brew_langs = [
