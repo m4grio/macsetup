@@ -3,6 +3,10 @@ from __future__ import print_function
 import sys
 import subprocess
 
+taps = [
+    'caskroom/cask',
+]
+
 brew_packages = [
     'ansible',
     'cask',
@@ -159,20 +163,33 @@ class Program:
         self.dry_run = '-d' in argv
 
     def install(self, args):
-        return "{dry_run_program} {install_program} install {args}".format(**dict(
+        return "{dry_run_program} {binary} install {args}".format(**dict(
             dry_run_program='echo' if self.dry_run else '',
-            install_program=self.install_program,
+            binary=self.binary,
             args=' '.join(x for x in args)
         ))
 
 class Brew(Program):
-    install_program = 'brew'
+    binary = 'brew'
+
+    def tap(self, args):
+        return "{dry_run_program} {binary} tap {args}".format(**dict(
+            dry_run_program='echo' if self.dry_run else '',
+            binary=self.binary,
+            args=' '.join(x for x in args)
+        ))
+
+    def update(self):
+        return "{dry_run_program} {binary} update".format(**dict(
+            dry_run_program='echo' if self.dry_run else '',
+            binary=self.binary,
+        ))
 
 class Cask(Program):
-    install_program = 'brew cask'
+    binary = 'brew cask'
 
 class Mas(Program):
-    install_program = 'mas'
+    binary = 'mas'
 
 class Flags:
     dry_run=False
@@ -202,7 +219,7 @@ def message(message='', color=Colors.HEADER):
 def set_flags(argv=[]):
     Flags.dry_run       = '-d' in argv
     Flags.brew_packages = not '--no-packages' in argv
-    Flags.brew_langs    = not '--no-languages' in argv
+    Flags.brew_langs    = not '--no-langs' in argv
     Flags.brew_dbs      = not '--no-dbs' in argv
     Flags.cask_apps     = not '--no-apps' in argv
     Flags.mas_apps      = not '--no-mas' in argv
@@ -222,7 +239,7 @@ DESCRIPTION
 OPTIONS
 	-d/--dry-run     Echo commands rather than running them
 	--no-packages    Do not install any package from Homebrew
-	--no-languages   Do not install any programming language
+	--no-langs   Do not install any programming language
 	--no-dbs         Do not install any databases
 	--no-apps        Do not install any application from Caskroom
 	--no-mas         Do not install any application from App Store
@@ -241,5 +258,30 @@ if __name__ == '__main__':
     if any(x in ['-h', '--h', '--help'] for x in sys.argv):
         print_help_and_exit()
 
+    brew = Brew(sys.argv)
+
     message("Updating Brew...")
-    subprocess.call(Brew(sys.argv).install(brew_packages), shell=True)
+    subprocess.call(brew.update(), shell=True)
+
+    message("Tapping...")
+    subprocess.call(brew.tap(taps), shell=True)
+
+    if Flags.brew_packages:
+        message("Installing packages...")
+        subprocess.call(brew.install(brew_packages), shell=True)
+
+    if Flags.brew_langs:
+        message("Installing languages...")
+        subprocess.call(brew.install(brew_langs), shell=True)
+
+    if Flags.brew_dbs:
+        message("Installing databases...")
+        subprocess.call(brew.install(brew_dbs), shell=True)
+
+    if Flags.cask_apps:
+        message("Installing applications from Caskroom...")
+        subprocess.call(Cask(sys.argv).install(cask_apps), shell=True)
+
+    if Flags.mas_apps:
+        message("Installing applications from App Store...")
+        subprocess.call(Mas(sys.argv).install(mas_apps), shell=True)
