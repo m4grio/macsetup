@@ -82,7 +82,7 @@ cask_apps = [
     'appcleaner',
     'atom',
     'bartender',
-    'boom',
+    'boom-3d',
     'brave',
     'calibre',
     'cloudup',
