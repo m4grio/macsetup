@@ -52,7 +52,7 @@ brew_packages = [
     'sl',
     'speedtest_cli',
     'tree',
-    'tmux,
+    'tmux',
     'watch',
     'tig',
     'tldr',
@@ -157,17 +157,40 @@ mas_apps = [
     # '975937182',  # fantastical2
 ]
 
+code_extensions = [
+    'SolarLiner.linux-themes',
+    'bbenoist.vagrant',
+    'lukehoban.Go',
+    'mjmcloug.vscode-elixir',
+    'ms-python.python',
+]
+
+code_insiders_extensions = [
+    'PeterJausovec.vscode-docker',
+    'SolarLiner.linux-themes',
+    'blzjns.vscode-raml',
+    'lukehoban.Go',
+    'mjmcloug.vscode-elixir',
+    'ms-python.python',
+    'ms-vscode.azure-account',
+    'ph-hawkins.arc-plus',
+    'pnp.polacode',
+    'zxh404.vscode-proto3',
+]
+
 class Program:
     dry_run = False
     dry_run_program = 'echo'
+    install_command = 'install'
 
     def __init__(self, argv=[]):
         self.dry_run = '-d' in argv
 
     def install(self, args):
-        return "{dry_run_program} {binary} install {args}".format(**dict(
+        return "{dry_run_program} {binary} {install_command} {args}".format(**dict(
             dry_run_program='echo' if self.dry_run else '',
             binary=self.binary,
+            install_command=self.install_command,
             args=' '.join(x for x in args)
         ))
 
@@ -187,6 +210,21 @@ class Brew(Program):
             binary=self.binary,
         ))
 
+class Code(Program):
+    binary = 'code'
+    install_command = '--install-extension'
+
+    def install(self, ext):
+        return "{dry_run_program} {binary} {install_command} {ext}".format(**dict(
+            dry_run_program='echo' if self.dry_run else '',
+            binary=self.binary,
+            install_command=self.install_command,
+            ext=ext,
+        ))
+
+class CodeInsiders(Code):
+    binary = 'code-insiders'
+
 class Cask(Program):
     binary = 'brew cask'
 
@@ -200,6 +238,8 @@ class Flags:
     brew_dbs=True
     cask_apps=True
     mas_apps=True
+    code_ext=True
+    code_insiders_ext=True
 
 class Colors:
     HEADER = '\033[95m'
@@ -225,6 +265,8 @@ def set_flags(argv=[]):
     Flags.brew_dbs      = not '--no-dbs' in argv
     Flags.cask_apps     = not '--no-apps' in argv
     Flags.mas_apps      = not '--no-mas' in argv
+    Flags.code_ext            = not '--no-code' in argv
+    Flags.code_insiders_ext   = not '--no-code-insiders' in argv
 
 
 def print_help_and_exit():
@@ -239,12 +281,14 @@ DESCRIPTION
 	Install good stuff in your shiny new Mac.
 
 OPTIONS
-	-d/--dry-run     Echo commands rather than running them
-	--no-packages    Do not install any package from Homebrew
-	--no-langs       Do not install any programming language
-	--no-dbs         Do not install any databases
-	--no-apps        Do not install any application from Caskroom
-	--no-mas         Do not install any application from App Store
+	-d/--dry-run			Echo commands rather than running them
+	--no-packages			Do not install any package from Homebrew
+	--no-langs			Do not install any programming language
+	--no-dbs			Do not install any databases
+	--no-apps			Do not install any application from Caskroom
+	--no-mas			Do not install any application from App Store
+	--no-code			Do not install any extension for Visual Studio Code
+	--no-code-insiders		Do not install any extension for Visual Studio Code - Insiders
     """)
     sys.exit(0)
 
@@ -287,3 +331,19 @@ if __name__ == '__main__':
     if Flags.mas_apps:
         message("Installing applications from App Store...")
         subprocess.call(Mas(sys.argv).install(mas_apps), shell=True)
+
+    if Flags.code_ext:
+        message("Installing extensions for Visual Studio Code...")
+        if not code_extensions:
+            message("Nothing to install. Moving along.")
+        else:
+            for ext in code_extensions:
+                subprocess.call(Code(sys.argv).install(ext), shell=True)
+
+    if Flags.code_insiders_ext:
+        message("Installing extensions for Visual Studio Code - Insiders...")
+        if not code_insiders_extensions:
+            message("Nothing to install. Moving along.")
+        else:
+            for ext in code_insiders_extensions:
+                subprocess.call(CodeInsiders(sys.argv).install(ext), shell=True)
