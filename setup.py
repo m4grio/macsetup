@@ -52,7 +52,7 @@ brew_packages = [
     'sl',
     'speedtest_cli',
     'tree',
-    'tmux,
+    'tmux',
     'watch',
     'tig',
     'tldr',
