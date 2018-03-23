@@ -40,6 +40,7 @@ brew_packages = [
     'parallel',
     'pcre',
     'pidof',
+    'protobuf',
     'putty',
     'pwgen',
     'python',
