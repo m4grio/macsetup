@@ -176,6 +176,7 @@ code_insiders_extensions = [
     'ph-hawkins.arc-plus',
     'pnp.polacode',
     'zxh404.vscode-proto3',
+    'faustinoaq.crystal-lang',
 ]
 
 class Program:
