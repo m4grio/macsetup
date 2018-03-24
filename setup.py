@@ -65,6 +65,7 @@ brew_langs = [
     'erlang',
     'elixir',
     'node',
+    'crystal-lang',
 ]
 
 brew_dbs = [
