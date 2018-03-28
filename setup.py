@@ -41,6 +41,7 @@ brew_packages = [
     'pcre',
     'pidof',
     'protobuf',
+    'pstree',
     'putty',
     'pwgen',
     'python',
