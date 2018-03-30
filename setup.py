@@ -96,6 +96,7 @@ cask_apps = [
     'flycut',
     'gfxcardstatus',
     'gitkraken',
+    'goland',
     'google-chrome',
     'iterm2',
     # 'medis',
