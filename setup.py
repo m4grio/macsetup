@@ -33,6 +33,7 @@ brew_packages = [
     'htop',
     'httpie',
     'jmeter',
+    'jq',
     'linode-cli',
     'logstalgia',
     'nettle',
