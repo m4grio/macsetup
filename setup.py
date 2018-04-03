@@ -179,6 +179,7 @@ code_insiders_extensions = [
     'pnp.polacode',
     'zxh404.vscode-proto3',
     'alefragnani.bookmarks',
+    'vscjava.vscode-java-pack',
 ]
 
 class Program:
