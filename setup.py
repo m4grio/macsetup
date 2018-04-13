@@ -30,6 +30,7 @@ brew_packages = [
     'git-radar',
     'git-standup',
     'gnupg',
+    'hh',
     'htop',
     'httpie',
     'jmeter',
