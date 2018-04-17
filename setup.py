@@ -160,6 +160,7 @@ mas_apps = [
     '425424353',  # unarchiver
     # '557168941',  # tweetbot
     # '975937182',  # fantastical2
+    '1063631769', # Medis
 ]
 
 code_extensions = [
