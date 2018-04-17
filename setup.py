@@ -54,6 +54,7 @@ brew_packages = [
     'siege',
     'sl',
     'speedtest_cli',
+    'station',
     'tree',
     'tmux',
     'watch',
