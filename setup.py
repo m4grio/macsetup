@@ -33,6 +33,7 @@ brew_packages = [
     'hh',
     'htop',
     'httpie',
+    'hub',
     'jmeter',
     'jq',
     'linode-cli',
