@@ -95,6 +95,7 @@ cask_apps = [
     'cloudup',
     'diffmerge',
     'docker',
+    'docker-machine-driver-xhyve',
     'dropbox',
     'evernote',
     'firefox',
