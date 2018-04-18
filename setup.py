@@ -62,6 +62,7 @@ brew_packages = [
     'tig',
     'tldr',
     'dep',
+    'vault',
     'xhyve',
 ]
 
