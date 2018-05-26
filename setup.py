@@ -307,55 +307,58 @@ OPTIONS
 
 if __name__ == '__main__':
 
-    if subprocess.call("hash brew 2> /dev/null", shell=True):
-        message("Installing Homebrew...")
-        subprocess.call('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
+    try:
+        if subprocess.call("hash brew 2> /dev/null", shell=True):
+            message("Installing Homebrew...")
+            subprocess.call('/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 
-    set_flags(sys.argv)
+        set_flags(sys.argv)
 
-    if any(x in ['-h', '--h', '--help'] for x in sys.argv):
-        print_help_and_exit()
+        if any(x in ['-h', '--h', '--help'] for x in sys.argv):
+            print_help_and_exit()
 
-    brew = Brew(sys.argv)
+        brew = Brew(sys.argv)
 
-    message("Updating Brew...")
-    subprocess.call(brew.update(), shell=True)
+        message("Updating Brew...")
+        subprocess.call(brew.update(), shell=True)
 
-    message("Tapping...")
-    subprocess.call(brew.tap(taps), shell=True)
+        message("Tapping...")
+        subprocess.call(brew.tap(taps), shell=True)
 
-    if Flags.brew_packages:
-        message("Installing packages...")
-        subprocess.call(brew.install(brew_packages), shell=True)
+        if Flags.brew_packages:
+            message("Installing packages...")
+            subprocess.call(brew.install(brew_packages), shell=True)
 
-    if Flags.brew_langs:
-        message("Installing languages...")
-        subprocess.call(brew.install(brew_langs), shell=True)
+        if Flags.brew_langs:
+            message("Installing languages...")
+            subprocess.call(brew.install(brew_langs), shell=True)
 
-    if Flags.brew_dbs:
-        message("Installing databases...")
-        subprocess.call(brew.install(brew_dbs), shell=True)
+        if Flags.brew_dbs:
+            message("Installing databases...")
+            subprocess.call(brew.install(brew_dbs), shell=True)
 
-    if Flags.cask_apps:
-        message("Installing applications from Caskroom...")
-        subprocess.call(Cask(sys.argv).install(cask_apps), shell=True)
+        if Flags.cask_apps:
+            message("Installing applications from Caskroom...")
+            subprocess.call(Cask(sys.argv).install(cask_apps), shell=True)
 
-    if Flags.mas_apps:
-        message("Installing applications from App Store...")
-        subprocess.call(Mas(sys.argv).install(mas_apps), shell=True)
+        if Flags.mas_apps:
+            message("Installing applications from App Store...")
+            subprocess.call(Mas(sys.argv).install(mas_apps), shell=True)
 
-    if Flags.code_ext:
-        message("Installing extensions for Visual Studio Code...")
-        if not code_extensions:
-            message("Nothing to install. Moving along.")
-        else:
-            for ext in code_extensions:
-                subprocess.call(Code(sys.argv).install(ext), shell=True)
+        if Flags.code_ext:
+            message("Installing extensions for Visual Studio Code...")
+            if not code_extensions:
+                message("Nothing to install. Moving along.")
+            else:
+                for ext in code_extensions:
+                    subprocess.call(Code(sys.argv).install(ext), shell=True)
 
-    if Flags.code_insiders_ext:
-        message("Installing extensions for Visual Studio Code - Insiders...")
-        if not code_insiders_extensions:
-            message("Nothing to install. Moving along.")
-        else:
-            for ext in code_insiders_extensions:
-                subprocess.call(CodeInsiders(sys.argv).install(ext), shell=True)
+        if Flags.code_insiders_ext:
+            message("Installing extensions for Visual Studio Code - Insiders...")
+            if not code_insiders_extensions:
+                message("Nothing to install. Moving along.")
+            else:
+                for ext in code_insiders_extensions:
+                    subprocess.call(CodeInsiders(sys.argv).install(ext), shell=True)
+    except KeyboardInterrupt:
+        pass
