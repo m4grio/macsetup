@@ -71,6 +71,7 @@ brew_langs = [
     'erlang',
     'elixir',
     'node',
+    'rust',
 ]
 
 brew_dbs = [
