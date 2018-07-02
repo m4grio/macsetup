@@ -143,7 +143,6 @@ cask_apps = [
     'skitch',
     'sqlpro-for-sqlite',
     'bbedit',
-    # 'things',
     'tubbler',
     'unrarx',
     'vagrant',
@@ -165,6 +164,7 @@ mas_apps = [
     # '557168941',  # tweetbot
     # '975937182',  # fantastical2
     '1063631769', # Medis
+    '904280696', # Things
 ]
 
 code_extensions = [
