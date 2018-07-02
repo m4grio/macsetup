@@ -142,7 +142,7 @@ cask_apps = [
     'rubymine',
     'skitch',
     'sqlpro-for-sqlite',
-    # 'textwrangler',
+    'bbedit',
     # 'things',
     'tubbler',
     'unrarx',
