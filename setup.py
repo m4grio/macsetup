@@ -108,7 +108,7 @@ cask_apps = [
     'iterm2',
     # 'medis',
     'postman',
-    # 'robomongo',
+    'studio-3t',
     'sdformatter',
     'sequel-pro',
     'skype',
