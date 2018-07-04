@@ -5,7 +5,6 @@ import subprocess
 
 taps = [
     'caskroom/cask',
-    'linode/cli',
     'homebrew/cask/visual-studio-code',
     # 'recime/tools',
 ]
@@ -35,7 +34,6 @@ brew_packages = [
     'hub',
     'jmeter',
     'jq',
-    'linode-cli',
     'logstalgia',
     'nettle',
     'openssl openssl@1.1',
