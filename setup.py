@@ -6,7 +6,6 @@ import subprocess
 taps = [
     'caskroom/cask',
     'linode/cli',
-    'michaeldfallen/formula',
     # 'recime/tools',
 ]
 
@@ -26,7 +25,7 @@ brew_packages = [
     'dos2unix',
     'gettext',
     'git',
-    'git-radar',
+    'michaeldfallen/formula/git-radar',
     'git-standup',
     'gnupg',
     'hh',
