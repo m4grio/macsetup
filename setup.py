@@ -5,7 +5,6 @@ import subprocess
 
 taps = [
     'caskroom/cask',
-    'caskroom/versions',
     'linode/cli',
     'michaeldfallen/formula',
     # 'recime/tools',
