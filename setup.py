@@ -113,7 +113,7 @@ cask_apps = [
     'spotify-notifications',
     'sublime-text',
     'vagrant',
-    'virtualbox',
+    # 'virtualbox',
     'blackscreen-screensaver',
     'cathode',
     'charles',
