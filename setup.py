@@ -6,6 +6,7 @@ import subprocess
 taps = [
     'caskroom/cask',
     'linode/cli',
+    'homebrew/cask/visual-studio-code',
     # 'recime/tools',
 ]
 
