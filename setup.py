@@ -61,7 +61,6 @@ brew_packages = [
     'tldr',
     'dep',
     'vault',
-    'xhyve',
 ]
 
 brew_langs = [
@@ -94,7 +93,6 @@ cask_apps = [
     'cloudup',
     'diffmerge',
     'docker',
-    'docker-machine-driver-xhyve',
     'dropbox',
     'evernote',
     'firefox',
