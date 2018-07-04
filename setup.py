@@ -96,7 +96,6 @@ cask_apps = [
     'dropbox',
     'evernote',
     'firefox',
-    'flycut',
     'gfxcardstatus',
     'gitkraken',
     'goland',
