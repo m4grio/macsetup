@@ -140,7 +140,7 @@ cask_apps = [
     'sqlpro-for-sqlite',
     'bbedit',
     'tubbler',
-    'unrarx',
+    'unrar',
     'vagrant',
     'viscosity',
     'visual-studio-code',
