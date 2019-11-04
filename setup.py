@@ -6,6 +6,7 @@ import subprocess
 taps = [
     'homebrew/cask-cask',
     'homebrew/cask/visual-studio-code',
+    'homebrew/cask-drivers',
     # 'recime/tools',
 ]
 
@@ -145,6 +146,7 @@ cask_apps = [
     'xmind',
     'jumpcut',
     'vanilla',
+    'logitech-options',
 ]
 
 mas_apps = [
