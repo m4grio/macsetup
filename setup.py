@@ -4,7 +4,7 @@ import sys
 import subprocess
 
 taps = [
-    'caskroom/cask-cask',
+    'homebrew/cask-cask',
     'homebrew/cask/visual-studio-code',
     # 'recime/tools',
 ]
