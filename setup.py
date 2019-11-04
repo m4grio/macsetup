@@ -120,7 +120,6 @@ cask_apps = [
     'google-chrome',
     'gpg-suite',
     'hyper',
-    'insomnia',
     'intellij-idea',
     'izip',
     'keybase',
