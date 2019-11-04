@@ -87,7 +87,7 @@ cask_apps = [
     'atom',
     'bartender',
     'boom-3d',
-    'brave',
+    'brave-browser',
     'calibre',
     'cloudup',
     'diffmerge',
