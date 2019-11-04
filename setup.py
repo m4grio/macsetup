@@ -138,7 +138,6 @@ cask_apps = [
     'sqlpro-for-sqlite',
     'station',
     'bbedit',
-    'tubbler',
     'vagrant',
     'viscosity',
     'homebrew/cask/visual-studio-code',
