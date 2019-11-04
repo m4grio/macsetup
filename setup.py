@@ -238,6 +238,7 @@ class Mas(Program):
     binary = 'mas'
 
 class Flags:
+    update=False
     dry_run=False
     brew_packages=True
     brew_langs=True
@@ -266,6 +267,7 @@ def message(message='', color=Colors.HEADER):
 
 def set_flags(argv=[]):
     Flags.dry_run       = '-d' in argv
+    Flags.update        = '-u' in argv
     Flags.brew_packages = not '--no-packages' in argv
     Flags.brew_langs    = not '--no-langs' in argv
     Flags.brew_dbs      = not '--no-dbs' in argv
@@ -313,8 +315,9 @@ if __name__ == '__main__':
 
         brew = Brew(sys.argv)
 
-        message("Updating Brew...")
-        subprocess.call(brew.update(), shell=True)
+	if Flags.update:
+            message("Updating Brew...")
+            subprocess.call(brew.update(), shell=True)
 
         message("Tapping...")
         subprocess.call(brew.tap(taps), shell=True)
