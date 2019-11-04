@@ -110,7 +110,7 @@ cask_apps = [
     'skype',
     'slack',
     'smartgit',
-    #'spotify',
+    'spotify',
     #'spotify-notifications',
     'sublime-text',
     'vagrant',
