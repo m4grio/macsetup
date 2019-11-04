@@ -61,7 +61,7 @@ brew_packages = [
     'tldr',
     'dep',
     'vault',
-    'httpie',
+    'fzf',
 ]
 
 brew_langs = [
