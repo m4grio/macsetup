@@ -163,11 +163,14 @@ mas_apps = [
 ]
 
 code_extensions = [
-    'SolarLiner.linux-themes',
+    'ph-hawkins.arc-plus',
     'bbenoist.vagrant',
-    'lukehoban.Go',
+    'ms-vscode.go',
     'mjmcloug.vscode-elixir',
     'ms-python.python',
+    'eamodio.gitlens',
+    'alefragnani.bookmarks',
+    'pnp.polacode',
 ]
 
 code_insiders_extensions = [
