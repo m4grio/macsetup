@@ -171,6 +171,7 @@ code_extensions = [
     'eamodio.gitlens',
     'alefragnani.bookmarks',
     'pnp.polacode',
+    'ms-kubernetes-tools.vscode-kubernetes-tools',
 ]
 
 code_insiders_extensions = [
